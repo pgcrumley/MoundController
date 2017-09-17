@@ -966,3 +966,16 @@
 2017.09.16_08:53:30 EVENT turn_off_pump
 2017.09.16_08:53:42 EVENT normal_sensor_sampling_rate
 2017.09.16_13:17:12 EVENT starting_controller
+2017.09.16_13:58:47 EVENT normal_sensor_sampling_rate
+2017.09.16_17:29:32 EVENT water_temperature_of_51.6875_is__over_threshold_of_51.6667
+2017.09.16_17:30:29 EVENT increase_sensor_sampling_rate
+2017.09.16_17:30:37 EVENT turn_on_pump
+2017.09.16_17:30:37 EVENT waiting_960_seconds
+2017.09.16_17:46:37 EVENT turn_off_pump
+2017.09.16_17:46:49 EVENT normal_sensor_sampling_rate
+2017.09.17_01:17:18 EVENT water_temperature_of_51.6875_is__over_threshold_of_51.6667
+2017.09.17_01:18:15 EVENT increase_sensor_sampling_rate
+2017.09.17_01:18:23 EVENT turn_on_pump
+2017.09.17_01:18:23 EVENT waiting_960_seconds
+2017.09.17_01:34:23 EVENT turn_off_pump
+2017.09.17_01:34:35 EVENT normal_sensor_sampling_rate
