@@ -1299,3 +1299,5 @@
 2017.10.12_14:26:41 EVENT waiting_1300_seconds
 2017.10.12_14:48:21 EVENT turn_off_pump
 2017.10.12_14:48:33 EVENT normal_sensor_sampling_rate
+2017.10.21_13:17:12 EVENT starting_controller
+2017.10.21_13:45:36 EVENT normal_sensor_sampling_rate
