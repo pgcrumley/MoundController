@@ -1315,3 +1315,5 @@
 2017.11.07_22:01:14 EVENT normal_sensor_sampling_rate
 2017.11.08_00:17:12 EVENT starting_controller
 2017.11.08_00:18:12 EVENT normal_sensor_sampling_rate
+2017.11.19_14:18:12 EVENT normal_sensor_sampling_rate
+2017.11.19_15:08:17 DS18B20 28.ff.88.45.92.16.05.c2 34.02017.11.19_14:17:12 EVENT starting_controller
