@@ -54,7 +54,7 @@ cp event.log Data
 #grep '^2017.11' full.log > Data/2017.11.log  # now in github
 #grep '^2017.12' full.log > Data/2017.12.log
 #grep '^2018.01' full.log > Data/2018.01.log
-grep '^2018.03' full.log > Data/2018.03.log
+grep '^2018.04' full.log > Data/2018.04.log
 git add -f Data/*
 git commit -m 'update data'
 git push
