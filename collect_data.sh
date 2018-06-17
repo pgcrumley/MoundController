@@ -42,19 +42,18 @@ wait
 echo done
 
 echo uploading data...
-cp temp_1d.csv Data
-cp temp_1h.csv Data
-cp temp_10m.csv Data
-cp temp_1m.csv Data
-cp event.log Data
-#grep '^2017.07' full.log > Data/2017.07.log  # now in github
-#grep '^2017.08' full.log > Data/2017.08.log  # now in github
-#grep '^2017.09' full.log > Data/2017.09.log  # now in github
-#grep '^2017.10' full.log > Data/2017.10.log  # now in github
-#grep '^2017.11' full.log > Data/2017.11.log  # now in github
+#cp temp_1d.csv Data
+#cp temp_1h.csv Data
+#cp temp_10m.csv Data
+#cp temp_1m.csv Data
+#cp event.log Data
+zip Data/temp_data.zip temp_1d.csv temp_1h.csv temp_10m.csv temp_1m.csv
+zip Data/event_data.zip event.log
+zip Data/log.zip full.log
+
 #grep '^2017.12' full.log > Data/2017.12.log
 #grep '^2018.01' full.log > Data/2018.01.log
-grep '^2018.04' full.log > Data/2018.04.log
+grep '^2018.06' full.log > Data/2018.06.log
 git add -f Data/*
 git commit -m 'update data'
 git push
