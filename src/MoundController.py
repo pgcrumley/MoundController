@@ -82,10 +82,10 @@ PUMPING_SAMPLE_INTERVAL_IN_SECONDS = 4 # NOTE: Could be hard of > 2 ports
 START_STOP_SECONDS = 2 * PUMPING_SAMPLE_INTERVAL_IN_SECONDS
 
 # wait this long after stopping pump to let pile heat up again
-REHEAT_TIME_IN_SECONDS = 2 * 60 * 60
+REHEAT_TIME_IN_SECONDS = 1.5 * 60 * 60 # 1.5 hour * 60 min / hour * 60 sec / min
 
 # Run pump till output temperature is this low
-PUMP_THRESHOLD_TEMPERATURE = 35 # 35 degrees C, about 95 degrees F
+PUMP_THRESHOLD_TEMPERATURE = 53 # 35 degrees C, about 127 degrees F
 
 DATETIME_FORMAT = '%Y.%m.%d_%H:%M:%S'
 RESULT_FILENAME = '/home/pgc/mound_controller.log'
