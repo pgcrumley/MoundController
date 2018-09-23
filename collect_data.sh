@@ -54,6 +54,7 @@ zip Data/log.zip full.log
 #grep '^2017.12' full.log > Data/2017.12.log
 #grep '^2018.01' full.log > Data/2018.01.log
 grep '^2018.06' full.log > Data/2018.06.log
+grep '^2018.07' full.log > Data/2018.07.log
 git add -f Data/*
 git commit -m 'update data'
 git push
