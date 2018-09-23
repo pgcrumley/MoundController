@@ -1,0 +1,67 @@
+Disconnected pump on 2017 11/5 during pool winterization process
+----------
+
+Sensors as of 2018/09/15
+----------
+
+Controller 0:
+F   28.ff.a6.e8.92.16.04.f2
+Q   28.ff.c7.54.90.16.05.bc
+O   28.ff.ce.83.92.16.05.87
+Z   28.ff.13.84.92.16.05.b3
+N   28.ff.90.86.92.16.05.31
+U   28.ff.ee.48.92.16.05.d2
+G   28.ff.7c.e5.92.16.04.8c
+
+Controller 1:
+H   28.ff.81.51.00.16.01.01
+Y   28.ff.0b.f1.92.16.04.86  (pipe inlet)
+W   28.ff.b5.45.92.16.05.aa
+A   28.ff.1d.8c.50.16.04.4f  (missing, dead?)
+
+Controller 2:
+R   28.ff.2b.f7.92.16.04.77
+K   28.ff.88.45.92.16.05.c2
+L   28.ff.d7.39.93.16.04.77
+X   28.ff.73.58.90.16.05.fe
+M   28.ff.e2.42.92.16.05.e8
+V   28.ff.25.6a.90.16.05.b8  (missing, dead?)
+
+Controller 3:
+T   28.ff.45.43.92.16.05.05
+AB  28.ff.6d.23.92.16.05.53
+CD  28.ff.a2.ef.92.16.04.6b
+EF  28.ff.c0.83.92.16.05.25
+GH  28.ff.65.fd.92.16.04.27
+
+
+Moved to "Phase 2" of project on September 16 - 23
+----------
+
+Saved old data in "*phase1" directories
+
+New Pump Algorithm:
+  The pumping algorithm is a loop which does the following:
+    Start the pump (and faster samples on watched sensors)
+    Let the water circulate for 30 seconds.
+    Each time the watched sensors are read, record the output temperature
+    While the temperature is above PUMP_THRESHOLD
+      keep pumping
+    When the temperature is at or below PUMP_THRESHOLD
+      Turn off the pump
+      Return the sampling rate of the watched sensors to the monitor rate
+      Wait 120 minutes
+    Loop back to the top of this sequence 
+    
+Problems with current pipe sensors.  For now:
+    Inlet is sensor Y
+    Outlet is sensor TBD (broken)
+    pipe sensor W is just hanging out in the air -- will put in pipe at outlet
+
+Relay for pump is broken.  
+    Moved from first to second relay (on 4 relay card).
+    This only involves moving wires, the code still uses GPIO 17.
+
+Source code is now in github
+----------
+Added source code to github in case it can be helpful to others.
