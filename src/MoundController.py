@@ -46,7 +46,7 @@ The sensors are segregated in to two groups:
   
   The pumping algorithm is a loop which does the following:
     Start the pump (and faster samples on watched sensors)
-    Let the water circulate for 30 seconds.
+    Let the water circulate for MINIMUM_PUMP_TIME_IN_SECONDS seconds.
     Each time the watched sensors are read, record the output temperature
     While the temperature is above PUMP_THRESHOLD
       keep pumping
@@ -81,12 +81,16 @@ PUMPING_SAMPLE_INTERVAL_IN_SECONDS = 4 # NOTE: Could be hard of > 2 ports
 # how long to wait after changing sample rate
 START_STOP_SECONDS = 2 * PUMPING_SAMPLE_INTERVAL_IN_SECONDS
 
+# run the pump long enough for hot water to reach the outlet sensor
+MINIMUM_PUMP_TIME_IN_SECONDS = 60
+
 # wait this long after stopping pump to let pile heat up again
 REHEAT_TIME_IN_SECONDS = 1.5 * 60 * 60 # 1.5 hour * 60 min / hour * 60 sec / min
 
 # Run pump till output temperature is this low
 #PUMP_THRESHOLD_TEMPERATURE = 53 # 35 degrees C, about 127 degrees F
-PUMP_THRESHOLD_TEMPERATURE = 40 # 
+#PUMP_THRESHOLD_TEMPERATURE = 40 # 
+PUMP_THRESHOLD_TEMPERATURE = 50 # typical hot water in a home 
 
 DATETIME_FORMAT = '%Y.%m.%d_%H:%M:%S'
 RESULT_FILENAME = '/home/pgc/mound_controller.log'
@@ -96,11 +100,11 @@ PORT_SPEED = 115200
 
 NL = '\n'.encode('UTF-8')
 
-#PIPE_INLET_SENSOR_ID = '28.ff.0b.f1.92.16.04.86' # Y
-#PIPE_MOUND_SENSOR_ID = '28.ff.b5.45.92.16.05.aa' # W - not used
-#PIPE_OUTLET_SENSOR_ID = '28.ff.ed.77.45.16.03.f0' # TBD
+PIPE_INLET_SENSOR_ID = '28.ff.0b.f1.92.16.04.86' # Y
+PIPE_OUTLET_SENSOR_ID = '28.ff.b5.45.92.16.05.aa' # W
 
-SENSOR_TO_WATCH_ID = '28.ff.90.86.92.16.05.31' # sensor N for now
+#SENSOR_TO_WATCH_ID = '28.ff.90.86.92.16.05.31' # sensor N for now
+SENSOR_TO_WATCH_ID = PIPE_OUTLET_SENSOR_ID
 # only use WATCHED_SENSOR_SAMPLE when lock is held
 WATCHED_SENSOR_SAMPLE_LOCK = threading.Lock()
 WATCHED_SENSOR_SAMPLE = PUMP_THRESHOLD_TEMPERATURE
@@ -139,7 +143,9 @@ def release_pump():
     '''
     turn_off_pump()
 
-    
+#
+# these routines handle output of data and events
+#    
 
 class writer_thread (threading.Thread):
     '''
@@ -169,6 +175,10 @@ def timestamped_event_to_queue(queue, event_text):
     when = datetime.datetime.now().strftime(DATETIME_FORMAT)
     result = '{} EVENT {}\n'.format(when, event_text)
     queue.put(result)
+
+#
+# these routines get the data from the sensors
+#
 
 def process_sensor_reading(line):
     '''
@@ -278,6 +288,9 @@ class ports_reader_thread(threading.Thread):
             if 0 < delay_time:  # don't sleep if already next sample time
                 time.sleep(delay_time)
 
+#
+# determine whan and how to run pump
+#
 
 def pump_controller(write_queue, ports, base_interval, pumping_interval):
     '''
@@ -293,7 +306,7 @@ def pump_controller(write_queue, ports, base_interval, pumping_interval):
     The pumping algorithm is a loop which does the following:
       Start sampling the watched sensors more frequently
       Start the pump
-      Let the water circulate for 30 seconds.
+      Let the water circulate for MINIMUM_PUMP_TIME_IN_SECONDS seconds.
       Each time the watched sensors are read, record the output temperature
       While the temperature is above PUMP_THRESHOLD
         keep pumping
@@ -317,8 +330,9 @@ def pump_controller(write_queue, ports, base_interval, pumping_interval):
         # start the pump
         turn_on_pump()
         timestamped_event_to_queue(write_queue, 'turned_on_pump')
-        # let the pump run for 30 second to let temperatures settle
-        time.sleep(30)
+        # let the pump run for MINIMUM_PUMP_TIME_IN_SECONDS second to let 
+        # the water reach the outlet sensor
+        time.sleep(MINIMUM_PUMP_TIME_IN_SECONDS)
         
         # when the temperature is low enough set this to False
         keep_going = True
@@ -395,16 +409,13 @@ if __name__ == "__main__":
                   file=sys.stderr, flush=True)
         results = get_readings_from_port(p)
         for r in results:
-#             if PIPE_OUTLET_SENSOR_ID in r:
-#                 watched_ports.add(p)
-#                 break
-#             if PIPE_INLET_SENSOR_ID in r:
-#                 watched_ports.add(p)
-#                 break
-#             if PIPE_MOUND_SENSOR_ID in r:
-#                 watched_ports.add(p)
-#                 break
-            if SENSOR_TO_WATCH_ID in r:
+            if PIPE_OUTLET_SENSOR_ID in r:
+                watched_ports.add(p)
+                break
+            if PIPE_INLET_SENSOR_ID in r:
+                watched_ports.add(p)
+                break
+            if SENSOR_TO_WATCH_ID in r:  # probably PIPE_OUTLET_SENSOR_ID
                 watched_ports.add(p)
                 break
 

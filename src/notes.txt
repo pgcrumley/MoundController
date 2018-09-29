@@ -1,8 +1,10 @@
-Disconnected pump on 2017 11/5 during pool winterization process
+2017 Nov 5:
 ----------
+Disconnected pump during pool winterization process
 
-Sensors as of 2018/09/15
-----------
+
+Sensors as of 2018/09/15:
+------------------------
 
 Controller 0:
 F   28.ff.a6.e8.92.16.04.f2
@@ -16,7 +18,7 @@ G   28.ff.7c.e5.92.16.04.8c
 Controller 1:
 H   28.ff.81.51.00.16.01.01
 Y   28.ff.0b.f1.92.16.04.86  (pipe inlet)
-W   28.ff.b5.45.92.16.05.aa
+W   28.ff.b5.45.92.16.05.aa  (pipe TBD)
 A   28.ff.1d.8c.50.16.04.4f  (missing, dead?)
 
 Controller 2:
@@ -35,8 +37,8 @@ EF  28.ff.c0.83.92.16.05.25
 GH  28.ff.65.fd.92.16.04.27
 
 
-Moved to "Phase 2" of project on September 16 - 23
-----------
+Moved to "Phase 2" of project on September 16 - 23:
+--------------------------------------------------
 
 Saved old data in "*phase1" directories
 
@@ -65,3 +67,13 @@ Relay for pump is broken.
 Source code is now in github
 ----------
 Added source code to github in case it can be helpful to others.
+
+
+2018 Sept 29:
+------------
+Added outlet temperature sensor (sensor W) in to pipe a couple meters
+after it exits the mound.
+
+Changed control SW to use this sensor to make pump decisions and set 
+threshold to 50 degrees C.
+ 

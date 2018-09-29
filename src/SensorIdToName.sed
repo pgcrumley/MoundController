@@ -1,5 +1,5 @@
-        s/DS18B20 28.ff.b5.45.92.16.05.aa/pipe_TBD/
-        s/DS18B20 28.ff.ed.77.45.16.03.f0/pipe_outlet/
+        s/DS18B20 28.ff.b5.45.92.16.05.aa/pipe_outlet/
+        s/DS18B20 28.ff.ed.77.45.16.03.f0/pipe_outlet_old/
         s/DS18B20 28.ff.0b.f1.92.16.04.86/pipe_inlet/
         s/DS18B20 28.ff.1d.8c.50.16.04.4f/sensor_A/
         s/DS18B20 28.ff.a6.e8.92.16.04.f2/sensor_F/

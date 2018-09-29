@@ -32,8 +32,8 @@ Given a sensor type and id, return a name.
 
 name_from_type_and_id_map = {
     'DS18B20' : {
-        '28.ff.b5.45.92.16.05.aa' : 'pipe_TBD', # W
-        '28.ff.ed.77.45.16.03.f0' : 'pipe_outlet', 
+        '28.ff.b5.45.92.16.05.aa' : 'pipe_outlet', # W
+        '28.ff.ed.77.45.16.03.f0' : 'pipe_outlet_old', 
         '28.ff.0b.f1.92.16.04.86' : 'pipe_inlet', # Y
         '28.ff.1d.8c.50.16.04.4f' : 'sensor_A',  # was pipe_East
         '28.ff.a6.e8.92.16.04.f2' : 'sensor_F',
