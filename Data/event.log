@@ -618,3 +618,17 @@
 2018.09.29_09:55:47 EVENT turning_off_pump
 2018.09.29_09:55:57 EVENT base_sensor_sampling_rate
 2018.09.29_09:55:57 EVENT waiting_5400.0_seconds
+2018.09.29_10:24:44 EVENT starting_controller
+2018.09.29_10:26:45 EVENT increase_sensor_sampling_rate
+2018.09.29_10:26:53 EVENT turned_on_pump
+2018.09.29_10:27:27 EVENT last_watched_sample_29.9375_C
+2018.09.29_10:27:27 EVENT turning_off_pump
+2018.09.29_10:27:37 EVENT base_sensor_sampling_rate
+2018.09.29_10:27:37 EVENT waiting_5400.0_seconds
+2018.09.29_10:28:34 EVENT starting_controller
+2018.09.29_10:30:35 EVENT increase_sensor_sampling_rate
+2018.09.29_10:30:43 EVENT turned_on_pump
+2018.09.29_10:31:47 EVENT last_watched_sample_31.1875_C
+2018.09.29_10:31:47 EVENT turning_off_pump
+2018.09.29_10:31:59 EVENT base_sensor_sampling_rate
+2018.09.29_10:31:59 EVENT waiting_5400.0_seconds
