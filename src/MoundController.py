@@ -82,7 +82,7 @@ PUMPING_SAMPLE_INTERVAL_IN_SECONDS = 4 # NOTE: Could be hard of > 2 ports
 START_STOP_SECONDS = 2 * PUMPING_SAMPLE_INTERVAL_IN_SECONDS
 
 # run the pump long enough for hot water to reach the outlet sensor
-MINIMUM_PUMP_TIME_IN_SECONDS = 60
+MINIMUM_PUMP_TIME_IN_SECONDS = 120
 
 # wait this long after stopping pump to let pile heat up again
 REHEAT_TIME_IN_SECONDS = 1.5 * 60 * 60 # 1.5 hour * 60 min / hour * 60 sec / min
