@@ -995,3 +995,10 @@
 2018.10.04_13:17:07 EVENT starting_controller
 2018.10.04_13:20:40 EVENT increase_sensor_sampling_rate
 2018.10.04_13:20:48 EVENT turned_on_pump
+2018.10.07_21:17:11 EVENT starting_controller
+2018.10.07_21:52:00 EVENT increase_sensor_sampling_rate
+2018.10.07_21:52:08 EVENT turned_on_pump
+2018.10.07_21:54:12 EVENT last_watched_sample_19.0_C
+2018.10.07_21:54:12 EVENT turning_off_pump
+2018.10.07_21:54:24 EVENT base_sensor_sampling_rate
+2018.10.07_21:54:24 EVENT waiting_28800_seconds
