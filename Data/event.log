@@ -1261,3 +1261,10 @@
 2018.10.21_01:05:32 EVENT turning_off_pump
 2018.10.21_01:05:44 EVENT base_sensor_sampling_rate
 2018.10.21_01:05:44 EVENT waiting_28800_seconds
+2018.10.21_09:06:10 EVENT increase_sensor_sampling_rate
+2018.10.21_09:06:18 EVENT turned_on_pump
+2018.10.21_09:08:22 EVENT last_watched_sample_28.5_C
+2018.10.21_09:08:22 EVENT turning_off_pump
+2018.10.21_09:08:34 EVENT base_sensor_sampling_rate
+2018.10.21_09:08:34 EVENT waiting_28800_seconds
+2018.10.21_15:27:49 EVENT starting_controller
