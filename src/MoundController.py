@@ -85,12 +85,15 @@ START_STOP_SECONDS = 2 * PUMPING_SAMPLE_INTERVAL_IN_SECONDS
 MINIMUM_PUMP_TIME_IN_SECONDS = 120
 
 # wait this long after stopping pump to let pile heat up again
-REHEAT_TIME_IN_SECONDS = 1.5 * 60 * 60 # 1.5 hour * 60 min / hour * 60 sec / min
+#REHEAT_TIME_IN_SECONDS = 1.5 * 60 * 60 # 1.5 hour * 60 min / hour * 60 sec / min
+#REHEAT_TIME_IN_SECONDS = 8 * 60 * 60 # 8 hours * 60 min / hour * 60 sec / min
+REHEAT_TIME_IN_SECONDS = 48 * 60 * 60 # 8 hours * 60 min / hour * 60 sec / min
 
 # Run pump till output temperature is this low
 #PUMP_THRESHOLD_TEMPERATURE = 53 # 35 degrees C, about 127 degrees F
 #PUMP_THRESHOLD_TEMPERATURE = 40 # 
-PUMP_THRESHOLD_TEMPERATURE = 50 # typical hot water in a home 
+#PUMP_THRESHOLD_TEMPERATURE = 50 # typical hot water in a home 
+PUMP_THRESHOLD_TEMPERATURE = 45 # typical hot water in a home 
 
 DATETIME_FORMAT = '%Y.%m.%d_%H:%M:%S'
 RESULT_FILENAME = '/home/pgc/mound_controller.log'

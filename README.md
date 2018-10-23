@@ -42,3 +42,13 @@ Disconnected pump as part fo the pool winterization process.
 ##### 2018 Sept 29:  Addressed outlet sensor issue (described above)
 * Added outlet temperature sensor (sensor W) in to pipe a couple meters after it exits the mound.
 * Changed control SW to use this sensor to make pump decisions and set threshold to 50 degrees C.
+
+##### 2018 Oct 2+:  Large storm damaged sensors / controller.
+*  Some data will be missing
+
+##### 2018 Oct 21:  Restore missing sensors
+*  Sensors back on line
+
+##### 2018 Oct 22:  Pump less often
+*  Only pump every 48 hours to see if mound will heat up
+
