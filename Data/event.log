@@ -1292,3 +1292,4 @@
 2018.10.22_15:40:32 EVENT turning_off_pump
 2018.10.22_15:40:44 EVENT base_sensor_sampling_rate
 2018.10.22_15:40:44 EVENT waiting_28800_seconds
+2018.10.22_21:45:19 EVENT starting_controller
