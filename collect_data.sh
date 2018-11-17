@@ -35,8 +35,8 @@ echo getting files from mound ...
 #
 mkdir -p mound
 cd mound
-rsync -zv 'pgc@192.168.1.220:/home/pgc/*temper*' .
-rsync -zv 'pgc@192.168.1.220:/home/pgc/mound*' .
+rsync -zv 'pgc@192.168.1.220:/home/pgc/*temper*' . || exit 10
+rsync -zv 'pgc@192.168.1.220:/home/pgc/mound*' . || exit 10
 cd ..
 echo done
 
