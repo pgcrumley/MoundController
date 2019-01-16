@@ -2,7 +2,7 @@
 """
 MIT License
 
-Copyright (c) 2017, 2018 Paul G Crumley
+Copyright (c) 2017, 2019 Paul G Crumley
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -91,7 +91,7 @@ if __name__ == "__main__":
         timestamp = sl[0]
         name = sl[1]
         temperature = sl[2]
-        if not timestamp.startswith( ('2017', '2018') ):
+        if not timestamp.startswith( ('2017', '2018', '2019') ):
             print('line {} is "{}"'.format(entries+1, sl), file=sys.stderr)
             continue
 

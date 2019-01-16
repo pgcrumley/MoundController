@@ -87,7 +87,7 @@ MINIMUM_PUMP_TIME_IN_SECONDS = 120
 # wait this long after stopping pump to let pile heat up again
 #REHEAT_TIME_IN_SECONDS = 1.5 * 60 * 60 # 1.5 hour * 60 min / hour * 60 sec / min
 #REHEAT_TIME_IN_SECONDS = 8 * 60 * 60 # 8 hours * 60 min / hour * 60 sec / min
-REHEAT_TIME_IN_SECONDS = 48 * 60 * 60 # 8 hours * 60 min / hour * 60 sec / min
+REHEAT_TIME_IN_SECONDS = 48 * 60 * 60 # 48 hours * 60 min / hour * 60 sec / min
 
 # Run pump till output temperature is this low
 #PUMP_THRESHOLD_TEMPERATURE = 53 # 35 degrees C, about 127 degrees F
@@ -460,22 +460,26 @@ if __name__ == "__main__":
                                                        BASE_SAMPLE_INTERVAL_IN_SECONDS)
         background_sensor_thread.start()
 
-        if DEBUG:
-            print('waiting to let monitors get started ...\n',
-                  file=sys.stderr, flush=True)
-        time.sleep((BASE_SAMPLE_INTERVAL_IN_SECONDS * 2) + 5)
+#         if DEBUG:
+#             print('waiting to let monitors get started ...\n',
+#                   file=sys.stderr, flush=True)
+#         time.sleep((BASE_SAMPLE_INTERVAL_IN_SECONDS * 2) + 5)
+#         
+#         if DEBUG:
+#             print('starting pump controller\n',
+#                   file=sys.stderr, flush=True)
+#         
+#         pump_controller(write_queue, watched_ports, 
+#                         BASE_SAMPLE_INTERVAL_IN_SECONDS, 
+#                         PUMPING_SAMPLE_INTERVAL_IN_SECONDS)
+#         if DEBUG:
+#             print('back from pump controller\n',
+#                   file=sys.stderr, flush=True)
         
-        if DEBUG:
-            print('starting pump controller\n',
-                  file=sys.stderr, flush=True)
-        
-        pump_controller(write_queue, watched_ports, 
-                        BASE_SAMPLE_INTERVAL_IN_SECONDS, 
-                        PUMPING_SAMPLE_INTERVAL_IN_SECONDS)
-        if DEBUG:
-            print('back from pump controller\n',
-                  file=sys.stderr, flush=True)
-        
+        # just sit here an allow monitors to run
+        while True:
+            time.sleep(1000)
+            
         # clean up if we ever get here
         background_sensor_thread.stop()
         # ensure any remaining data has been written after stop
